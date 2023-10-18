@@ -2,21 +2,36 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 import backgroundImage from '../public/src/mate2.png'; 
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import login from '../redux/actions/singInAction';
 
 const LoginForm = ({ navigation }) => {
+  const [data,setData]=useState({email:"",password:""})
+  const dispatch=useDispatch()
+  async function sendData() {
+   if (data.email==="") {
+     console.log("pone mail");
+   }else if (data.password==="") {
+    console.log("pone password");
+   }
+
+   dispatch(login(data))
+   .then((res)=>console.log(res))
+  }
   return (
     <ImageBackground style={styles.container} source={backgroundImage}>
       <View style={styles.loginBackground}>
         <Text style={styles.loginTitle}>Login</Text>
         <View style={styles.inputContainer}>
           <Text style={styles.loginTexts}>Email:</Text>
-          <TextInput style={styles.textInput} />
+          <TextInput onChangeText={(e)=>setData({...data,email:e})} style={styles.textInput} />
         </View>
         <View style={styles.inputContainer}>
           <Text style={styles.loginTexts}>Password:</Text>
-          <TextInput secureTextEntry={true} style={styles.textInput} />
+          <TextInput onChangeText={(e)=>setData({...data,password:e})} secureTextEntry={true} style={styles.textInput} />
         </View>
-        <TouchableOpacity style={styles.touchableLogin}>
+        <TouchableOpacity onPress={()=>sendData()} style={styles.touchableLogin}>
           <ImageBackground
             source={require('../public/src/madera.png')}
             style={styles.buttonBackground}>

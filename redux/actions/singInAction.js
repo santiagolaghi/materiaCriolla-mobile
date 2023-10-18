@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-const api = 'http://localhost:8080';
+const api = 'http://10.0.2.2:8080';
 // Acción asincrónica para iniciar sesión
 const login = createAsyncThunk('login', async (data) => {
     if (data.token) {
