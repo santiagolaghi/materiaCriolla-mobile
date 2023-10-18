@@ -3,7 +3,7 @@ import axios from "axios"
 
 const categ = createAsyncThunk('getCateg', async () => {
     try {
-        const response = await axios.get('http://localhost:8080/categories')
+        const response = await axios.get('https://materiacriolla.onrender.com/categories')
         console.log(response.data)
         return response.data
     } catch (error) {

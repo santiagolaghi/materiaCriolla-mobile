@@ -8,6 +8,7 @@ import login from '../redux/actions/singInAction';
 
 const LoginForm = ({ navigation }) => {
   const [data,setData]=useState({email:"",password:""})
+  console.log(data);
   const dispatch=useDispatch()
   async function sendData() {
    if (data.email==="") {
@@ -15,9 +16,8 @@ const LoginForm = ({ navigation }) => {
    }else if (data.password==="") {
     console.log("pone password");
    }
-
    dispatch(login(data))
-   .then((res)=>console.log(res))
+   .then((res)=>console.log("hola",res))
   }
   return (
     <ImageBackground style={styles.container} source={backgroundImage}>
