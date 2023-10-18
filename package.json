@@ -15,10 +15,7 @@
     "@react-navigation/stack": "^6.3.18",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.5.1",
-<<<<<<< HEAD
-=======
     "deprecated-react-native-prop-types": "^5.0.0",
->>>>>>> cc7229594acd621776091a5dbc38bbde50c4074e
     "expo": "~49.0.13",
     "expo-status-bar": "~1.6.0",
     "react": "^18.2.0",
