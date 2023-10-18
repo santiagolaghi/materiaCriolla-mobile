@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-const api = 'http://localhost:8080';
+import storage from '../../utils/asyncStorage'
+const api = 'https://materiacriolla.onrender.com';
 const login = createAsyncThunk('login', async (data) => {
     if (data.token) {
         return {
@@ -14,13 +15,15 @@ const login = createAsyncThunk('login', async (data) => {
             user:data.token}
         }
         let res = await axios.post(api + '/auth/signIn', data)
-        localStorage.setItem('token', res.data.response.token);
-        localStorage.setItem('user', JSON.stringify(res.data.response.user))
+        console.log(res);
+        await storage.save({key:'token',data:{token:res.data.response.token}})
+        await storage.save({key:'user',data:{user:res.data.response.user}}) 
         return {
             token: res.data.response.token,
             user: res.data.response.user
         }
     } catch (error) {
+        console.log(error);
         return { error: error.response.data.error }
     }
 })

@@ -5,20 +5,17 @@ import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import logoutUser from '../redux/actions/signOutAction';
 
-const Logout = () => {
+const Logout = ({ navigation }) => {
   const dispatch = useDispatch();
-  const navigation = useNavigation();
 
   const handleLogout = async () => {
-    // Limpia el token y los datos del usuario almacenados en AsyncStorage
-    await AsyncStorage.removeItem('token');
-    await AsyncStorage.removeItem('user');
-
     // Despacha la acción de logoutUser para actualizar el estado de Redux
-    dispatch(logoutUser());
-
+    dispatch(logoutUser())
+    .then(()=>{
+      navigation.navigate('Home')
+    })
     // Redirige al usuario a la pantalla de inicio (reemplaza 'Home' por el nombre de tu pantalla de inicio)
-    navigation.navigate('Home');
+  
   };
 
   return (

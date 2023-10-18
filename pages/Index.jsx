@@ -5,6 +5,7 @@ import  login  from '../redux/actions/singInAction';
 import  Products  from '../redux/actions/productosAction'; 
 import  Categories  from '../redux/actions/categoriesAction'; 
 import  Carousel  from 'react-native-snap-carousel';
+import storage from '../utils/asyncStorage';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -25,14 +26,19 @@ const Home = () => {
   const products = useSelector((store) => store.products.products);
   const { user, token } = useSelector((store) => store.profile);
 
-  useEffect(() => {
-    if (!token || !token.length) {
-      const tokenStorage = ''; // Obtén el token de almacenamiento local en lugar de usar una cadena vacía.
-      const userStorage = null; // Obten el usuario almacenado localmente en lugar de usar null.
-      const data = { user: userStorage, token: tokenStorage };
-      dispatch(login(data));
-    }
-  }, [token]);
+  // useEffect(() => {
+  //   if (!token || !token.length) {
+  //   const localToken=storage.load({key:'token'})
+  //   const localUser=storage.load({key:'user'})
+  //   if (localToken!==null) {
+  //     const data={
+  //       token:localToken,
+  //       user:localUser
+  //     }
+  //     dispatch(login(data))
+  //   }
+  // }
+  // },[token])
 
   return (
     <ScrollView style={{ flex: 1 }}>
@@ -61,7 +67,7 @@ const Home = () => {
       <View style={{ flex: 1, flexDirection: 'row', margin: 16 }}>
         <View style={{ flex: 1 }}>
           <View style={{ backgroundColor: 'white', padding: 16, borderRadius: 8, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3, shadowRadius: 4, elevation: 3 }}>
-            <Image source={{ uri: products[0]?.product_photo }} style={{ width: '100%', height: 150 }} />
+            <Image source={products[0]?.product_photo} style={{ width: '100%', height: 150 }} />
             <Text style={{ fontSize: 16, fontWeight: 'bold', marginTop: 8 }}>{products[0]?.name}</Text>
             <Text>{products[0]?.description}</Text>
             <Button title="Buy" color="blue" />
@@ -69,7 +75,7 @@ const Home = () => {
         </View>
         <View style={{ flex: 1 }}>
           <View style={{ backgroundColor: 'white', padding: 16, borderRadius: 8, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3, shadowRadius: 4, elevation: 3 }}>
-            <Image source={{ uri: products[1]?.product_photo }} style={{ width: '100%', height: 150 }} />
+            <Image source={products[1]?.product_photo} style={{ width: '100%', height: 150 }} />
             <Text style={{ fontSize: 16, fontWeight: 'bold', marginTop: 8 }}>{products[1]?.name}</Text>
             <Text>{products[1]?.description}</Text>
             <Button title="Buy" color="blue" />
@@ -77,7 +83,7 @@ const Home = () => {
         </View>
         <View style={{ flex: 1 }}>
           <View style={{ backgroundColor: 'white', padding: 16, borderRadius: 8, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3, shadowRadius: 4, elevation: 3 }}>
-            <Image source={{ uri: products[2]?.product_photo }} style={{ width: '100%', height: 150 }} />
+            <Image source={products[2]?.product_photo} style={{ width: '100%', height: 150 }} />
             <Text style={{ fontSize: 16, fontWeight: 'bold', marginTop: 8 }}>{products[2]?.name}</Text>
             <Text>{products[2]?.description}</Text>
             <Button title="Buy" color="blue" />
