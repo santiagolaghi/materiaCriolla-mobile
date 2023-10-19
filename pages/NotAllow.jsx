@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; 
 
-const NotAllow = () => {
-  const navigation = useNavigation();
+const NotAllow = ({navigation}) => {
 
   return (
     <ImageBackground

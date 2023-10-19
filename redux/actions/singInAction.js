@@ -10,10 +10,6 @@ const login = createAsyncThunk('login', async (data) => {
         }
     }
     try {
-        if (data.token) {
-            return {token:data.token,
-            user:data.token}
-        }
         let res = await axios.post(api + '/auth/signIn', data)
         console.log(res);
         await storage.save({key:'token',data:{token:res.data.response.token}})
