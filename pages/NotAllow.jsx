@@ -16,6 +16,7 @@ const NotAllow = ({ navigation }) => {
         ><ImageBackground borderRadius={10} style={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }} source={require('../public/src/madera.png')}>
             <Text style={styles.buttonText}>Sign In</Text>
           </ImageBackground>
+
         </TouchableOpacity>
 
         <Text style={styles.text}>
@@ -24,7 +25,7 @@ const NotAllow = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('Register')} // Reemplaza 'Register' con la ruta adecuada
+          onPress={() => navigation.navigate('Register')} 
         >
           <ImageBackground borderRadius={10} style={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }} source={require('../public/src/madera.png')}>
             <Text style={styles.buttonText}>Register</Text>

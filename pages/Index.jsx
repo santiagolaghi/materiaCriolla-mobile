@@ -72,7 +72,7 @@ const Home = () => {
       <View style={{ flex: 1, flexDirection: 'row', margin: 16 }}>
         <View style={{ flex: 1 }}>
           <View style={{ backgroundColor: 'white', padding: 16, borderRadius: 8, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3, shadowRadius: 4, elevation: 3 }}>
-            <Image source={products[0]?.product_photo} style={{ width: '100%', height: 150 }} />
+            <Image source={{uri: products[0]?.product_photo[0]}} style={{ width: '100%', height: 150 }} />
             <Text style={{ fontSize: 16, fontWeight: 'bold', marginTop: 8 }}>{products[0]?.name}</Text>
             <Text>{products[0]?.description}</Text>
             <Button title="Buy" color="blue" />
@@ -80,7 +80,7 @@ const Home = () => {
         </View>
         <View style={{ flex: 1 }}>
           <View style={{ backgroundColor: 'white', padding: 16, borderRadius: 8, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3, shadowRadius: 4, elevation: 3 }}>
-            <Image source={products[1]?.product_photo} style={{ width: '100%', height: 150 }} />
+            <Image source={{uri: products[1]?.product_photo[0]}} style={{ width: '100%', height: 150 }} />
             <Text style={{ fontSize: 16, fontWeight: 'bold', marginTop: 8 }}>{products[1]?.name}</Text>
             <Text>{products[1]?.description}</Text>
             <Button title="Buy" color="blue" />
@@ -88,7 +88,7 @@ const Home = () => {
         </View>
         <View style={{ flex: 1 }}>
           <View style={{ backgroundColor: 'white', padding: 16, borderRadius: 8, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3, shadowRadius: 4, elevation: 3 }}>
-            <Image source={products[2]?.product_photo} style={{ width: '100%', height: 150 }} />
+            <Image source={{uri: products[2]?.product_photo[0]}} style={{ width: '100%', height: 150 }} />
             <Text style={{ fontSize: 16, fontWeight: 'bold', marginTop: 8 }}>{products[2]?.name}</Text>
             <Text>{products[2]?.description}</Text>
             <Button title="Buy" color="blue" />
