@@ -89,13 +89,13 @@ const EditUserInfo = ({ navigation }) => {
             </View>
             <View style={styles.infoDiv}>
               <Text style={styles.infoText}>Date of birth</Text>
-              <TextInput keyboardType='numeric' onChangeText={(text)=>setData({...data,birthdate:text})} defaultValue={data.birthdate} style={styles.input}></TextInput>
+              <TextInput onChangeText={(text)=>setData({...data,birthdate:text})} defaultValue={data.birthdate} style={styles.input}></TextInput>
             </View>
           </View>
 
           <View style={styles.ThirdDiv}>
             <Pressable onPress={()=>changeData()} style={{width:'100%',height:'100%'}}>
-              <ImageBackground source={require('../public/src/madera.png')} style={{width:'100%',height:'100%',alignItems:'center',justifyContent:'center'}}>
+              <ImageBackground borderRadius={10} source={require('../public/src/madera.png')} style={{width:'100%',height:'100%',alignItems:'center',justifyContent:'center'}}>
                 <Text style={{fontSize:25,color:'white',fontWeight:'bold'}}>Update</Text>
               </ImageBackground>
             </Pressable>
