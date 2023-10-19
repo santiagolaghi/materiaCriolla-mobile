@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import NotAllow from './NotAllow'
 import storage from '../utils/asyncStorage'
 import login from '../redux/actions/singInAction'
+import userChangeAction from '../redux/actions/userChangeAction'
 
 const EditUserInfo = ({ navigation }) => {
   const { user, token } = useSelector((store) => store.profile)
@@ -14,7 +15,26 @@ const EditUserInfo = ({ navigation }) => {
 
   const dispatch = useDispatch()
 
-
+  function changeData(params) {
+    const info={
+      city: data.city || data.address.city,
+      country: data.country || data.address.country,
+      postalCode: data.postalCode || data.address.postalCode,
+      province: data.province || data.address.province,
+      street: data.street || data.address.street,
+      streetNumber: data.streetNumber || data.address.streetNumber,
+      name: data.name,
+      surname: data.surname,
+      birthdate: data.birthdate,
+      email: data.email  
+    }
+    dispatch(userChangeAction(info))
+    .then((res)=>{
+     if (!res.payload.error) {
+       navigation.navigate('Settings')
+     }
+    })
+  }
   async function isLogged() {
     const tokenStorage = await storage.load({ key: 'token' })
     const userStorage = await storage.load({ key: 'user' })
@@ -43,7 +63,6 @@ const EditUserInfo = ({ navigation }) => {
     <>
       {token ? (
         <View style={styles.conteiner}>
-
           <View style={styles.firstDiv}>
             <View style={{width:'50%',height:'100%',alignItems:'center',justifyContent:'center',position:'relative'}}>
             <Image style={styles.profileImage} src={data.photo} />
@@ -56,28 +75,30 @@ const EditUserInfo = ({ navigation }) => {
           </View>
 
           <View style={styles.secondDiv}>
-            <View style={styles.infoDiv}>
-              <Text style={styles.infoText}>Email</Text>
-              <TextInput defaultValue={data.email} style={styles.input}></TextInput>
-            </View>
-            <View style={styles.infoDiv}>
-              <Text style={styles.infoText}>Date of birth</Text>
-              <TextInput defaultValue={data.birthdate} style={styles.input}></TextInput>
-            </View>
-            <View style={styles.infoDiv}>
+          <View style={styles.infoDiv}>
               <Text style={styles.infoText}>Name</Text>
-              <TextInput defaultValue={data.name} style={styles.input}></TextInput>
+              <TextInput onChangeText={(text)=>setData({...data,name:text})} defaultValue={data.name} style={styles.input}></TextInput>
             </View>
             <View style={styles.infoDiv}>
               <Text style={styles.infoText}>Surname</Text>
-              <TextInput defaultValue={data.surname} style={styles.input}></TextInput>
+              <TextInput onChangeText={(text)=>setData({...data,surname:text})} defaultValue={data.surname} style={styles.input}></TextInput>
+            </View>
+            <View style={styles.infoDiv}>
+              <Text style={styles.infoText}>Email</Text>
+              <TextInput keyboardType='email-address' onChangeText={(text)=>setData({...data,email:text})} defaultValue={data.email} style={styles.input}></TextInput>
+            </View>
+            <View style={styles.infoDiv}>
+              <Text style={styles.infoText}>Date of birth</Text>
+              <TextInput keyboardType='numeric' onChangeText={(text)=>setData({...data,birthdate:text})} defaultValue={data.birthdate} style={styles.input}></TextInput>
             </View>
           </View>
 
           <View style={styles.ThirdDiv}>
-              <ImageBackground source={require('../public/src/madera.png')} style={{width:'85%',height:'80%',alignItems:'center',justifyContent:'center'}}>
-                <Text style={{fontSize:25}}>Update</Text>
+            <Pressable onPress={()=>changeData()} style={{width:'100%',height:'100%'}}>
+              <ImageBackground source={require('../public/src/madera.png')} style={{width:'100%',height:'100%',alignItems:'center',justifyContent:'center'}}>
+                <Text style={{fontSize:25,color:'white',fontWeight:'bold'}}>Update</Text>
               </ImageBackground>
+            </Pressable>
           </View>
 
         </View>
@@ -111,8 +132,10 @@ const styles = StyleSheet.create({
   ThirdDiv:{
     width:'100%',
     height:'10%',
+    paddingHorizontal:'20%',
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    paddingVertical:10,
   },
   profileImage: {
     width:'100%',
