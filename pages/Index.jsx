@@ -26,19 +26,24 @@ const Home = () => {
   const products = useSelector((store) => store.products.products);
   const { user, token } = useSelector((store) => store.profile);
 
-  // useEffect(() => {
-  //   if (!token || !token.length) {
-  //   const localToken=storage.load({key:'token'})
-  //   const localUser=storage.load({key:'user'})
-  //   if (localToken!==null) {
-  //     const data={
-  //       token:localToken,
-  //       user:localUser
-  //     }
-  //     dispatch(login(data))
-  //   }
-  // }
-  // },[token])
+  async function isLogged() {
+    const tokenStorage = await storage.load({ key: 'token' })
+    const userStorage = await storage.load({ key: 'user' })
+    if (tokenStorage) {
+      const data2 = {
+        token: tokenStorage.token,
+        user: userStorage.user
+      }
+      dispatch(login(data2))
+    }
+
+  }
+
+  useEffect(() => {
+    if (!token || !token.length) {
+      isLogged()
+    }
+  },[token])
 
   return (
     <ScrollView style={{ flex: 1 }}>

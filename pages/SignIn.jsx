@@ -6,9 +6,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import login from '../redux/actions/singInAction';
 
-const LoginForm = ({ navigation }) => {
+const SignIn = ({ navigation }) => {
   const [data,setData]=useState({email:"",password:""})
-  console.log(data);
   const dispatch=useDispatch()
   async function sendData() {
    if (data.email==="") {
@@ -52,7 +51,7 @@ const LoginForm = ({ navigation }) => {
   );
 };
 
-export default LoginForm;
+export default SignIn;
 
 const styles = StyleSheet.create({
   container: {
@@ -98,8 +97,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'transparent', // Establece el fondo del botón como transparente
     width: '100%',
-    height: 70,
+    height: 40,
     marginTop: 20,
+    
   },
   touchableRegister: {
     marginTop: 10,
@@ -108,17 +108,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'transparent', // Establece el fondo del botón como transparente
     width: '100%',
-    height: 70,
-    borderRadius: 15,
+    height: 40,
+    
   },
   loginButtonText: {
     color: 'white',
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: 'bold',
   },
   registerButtonText: {
     color: 'white',
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: 'bold',
   },
   questionText: {

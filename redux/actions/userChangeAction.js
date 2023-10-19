@@ -2,8 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import storage from '../../utils/asyncStorage';
 const userChangeAction = createAsyncThunk('userAddress', async (data) => {
-    const userStorage=storage.load({key:'user'}) 
-    const tokenStorage=storage.load({key:'token'}) 
+    let userStorage=storage.load({key:'user'}) 
+    userStorage=userStorage.user
+    let tokenStorage=storage.load({key:'token'}) 
+    tokenStorage.token
     let headers = { headers: { 'Authorization': `Bearer ${tokenStorage}` } }
     try {
         let updatedUser = await axios.put(`https://materiacriolla.onrender.com/auth/${userStorage._id}`,data,headers)

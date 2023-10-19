@@ -3,7 +3,9 @@ import axios from "axios"
 import storage from "../../utils/asyncStorage"
 
 const tokenStorage=storage.load({key:'token'})
+tokenStorage.token
 const userStorage=storage.load({key:'user'})
+userStorage.user
 const headers = ()=> {
     return {
   headers: { "Authorization": `Bearer ${tokenStorage}` }
