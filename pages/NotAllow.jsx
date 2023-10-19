@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Asumiendo que estás utilizando React Navigation para la navegación
+import { useNavigation } from '@react-navigation/native'; 
 
 const NotAllow = () => {
   const navigation = useNavigation();
@@ -17,7 +17,7 @@ const NotAllow = () => {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('SignIn')} // Reemplaza 'SignIn' con la ruta adecuada
+          onPress={() => navigation.navigate('SignIn')} 
         >
           <Text style={styles.buttonText}>Sign In!</Text>
         </TouchableOpacity>
@@ -28,7 +28,7 @@ const NotAllow = () => {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('Register')} // Reemplaza 'Register' con la ruta adecuada
+          onPress={() => navigation.navigate('Register')} 
         >
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Cambia el color de fondo y la opacidad según tus preferencias
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
   },
   text: {
     color: 'white',
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    backgroundColor: 'blue', // Cambia el color de fondo según tus preferencias
+    backgroundColor: 'blue', 
     padding: 10,
     borderRadius: 20,
     marginBottom: 10,
