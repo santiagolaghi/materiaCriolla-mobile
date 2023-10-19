@@ -2,10 +2,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 import storage from "../../utils/asyncStorage"
 
-const tokenStorage=storage.load({key:'token'})
-tokenStorage.token
-const userStorage=storage.load({key:'user'})
-userStorage.user
+let tokenStorage
+storage.load({key:'token'})
+.then((res)=>console.log(res))
+let userStorage
+storage.load({key:'user'}).then((res)=>userStorage=res)
+
 const headers = ()=> {
     return {
   headers: { "Authorization": `Bearer ${tokenStorage}` }

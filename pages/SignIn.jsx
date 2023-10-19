@@ -32,6 +32,7 @@ const SignIn = ({ navigation }) => {
         </View>
         <TouchableOpacity onPress={()=>sendData()} style={styles.touchableLogin}>
           <ImageBackground
+            borderRadius={10}
             source={require('../public/src/madera.png')}
             style={styles.buttonBackground}>
             <Text style={styles.loginButtonText}>Login</Text>
@@ -39,7 +40,8 @@ const SignIn = ({ navigation }) => {
         </TouchableOpacity>
         <Text style={styles.questionText}>Don't have an account yet?</Text>
         <TouchableOpacity style={styles.touchableRegister} onPress={() => navigation.navigate('Register')}>
-          <ImageBackground
+          <ImageBackground 
+            borderRadius={10}
             source={require('../public/src/madera.png')}
             style={styles.buttonBackground}>
             <Text style={styles.registerButtonText}>Register</Text>
