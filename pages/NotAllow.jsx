@@ -5,7 +5,7 @@ const NotAllow = ({navigation}) => {
 
   return (
     <ImageBackground
-      source={require('../public/src/madera.png')}
+      source={require('../public/src/mate3.jpg')}
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
@@ -16,19 +16,31 @@ const NotAllow = ({navigation}) => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('SignIn')} 
-        >
-          <Text style={styles.buttonText}>Sign In!</Text>
+        >        
+          <ImageBackground
+            source={require('../public/src/madera.png')}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>Sign In!</Text>
+          </ImageBackground>
         </TouchableOpacity>
 
         <Text style={styles.text}>
           You do not have an account?
         </Text>
+        
 
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('Register')} 
         >
-          <Text style={styles.buttonText}>Register</Text>
+          <ImageBackground
+            source={require('../public/src/madera.png')}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>Register</Text>
+          </ImageBackground>
+          
         </TouchableOpacity>
       </View>
     </ImageBackground>
@@ -54,7 +66,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    backgroundColor: 'blue', 
     padding: 10,
     borderRadius: 20,
     marginBottom: 10,
