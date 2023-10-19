@@ -22,6 +22,7 @@ const NotAllow = ({ navigation }) => {
         <Text style={styles.text}>
           You do not have an account yet?
         </Text>
+        
 
         <TouchableOpacity
           style={styles.button}
