@@ -26,8 +26,8 @@ const Navigator = () => {
             <tab.Screen options={{tabBarIcon:()=><Image style={{width:20,height:20}} source={require('../assets/settings.png')}/>}} name="Setting" component={SettingsNavigator}/>
             {!token&&
             <>
-                <tab.Screen name="SignIn" component={SignIn} /> 
-                <tab.Screen name="Register" component={Register} />
+                <tab.Screen options={{tabBarIcon:()=><Image style={{width:20,height:20}} source={require('../assets/signIn.png')}/>}} name="SignIn" component={SignIn} /> 
+                <tab.Screen options={{tabBarIcon:()=><Image style={{width:20,height:20}} source={require('../assets/register.png')}/>}} name="Register" component={Register} />
             </> 
         }
                  

@@ -40,10 +40,10 @@ const Products = () => {
         <View style={styles.conteiner}>
             <View style={styles.header}>
                 <Pressable onPress={() => setSearch(!search)}>
-                    <Image style={{ width: 30, height: 30, position: 'absolute', top: 45, right: 30 }} source={require('../assets/search.png')} />
+                    <Image style={{ width: 30, height: 30, position: 'absolute', top: 30, right: 30 }} source={require('../assets/search.png')} />
                 </Pressable>
                 {search&&
-                <TextInput style={{position:'absolute',top:45,left:20,width:'70%',borderWidth:1,borderRadius:10,paddingHorizontal:5}}/>}
+                <TextInput style={{position:'absolute',top:30,left:20,width:'70%',borderWidth:1,borderRadius:10,paddingHorizontal:5}}/>}
             </View>
             <Text style={{ fontSize: 30, width: '100%', paddingHorizontal: 10 }}>Our Products</Text>
             <View style={{ width: '100%', height: '10%', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 10 }}>
