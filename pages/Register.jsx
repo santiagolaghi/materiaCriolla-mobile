@@ -6,9 +6,10 @@ import mate1 from '../public/src/mate1.png';
 const Register = () => {
   return (
     <ImageBackground style={styles.container} source={mate1}>
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+      <ScrollView overScrollMode="never" contentContainerStyle={styles.scrollContent}>
         <View style={styles.loginBackground}>
           <Text style={styles.loginTitle}>Join Us</Text>
+          <View>
           <Text style={styles.loginTexts}>Name:</Text>
           <TextInput style={styles.textInput} />
           <Text style={styles.loginTexts}>Surname:</Text>
@@ -19,20 +20,10 @@ const Register = () => {
           <TextInput style={styles.textInput} secureTextEntry={true} />
           <Text style={styles.loginTexts}>Birthdate:</Text>
           <TextInput style={styles.textInput} />
-          <Text style={styles.loginTexts}>Country:</Text>
-          <TextInput style={styles.textInput} />
-          <Text style={styles.loginTexts}>Province:</Text>
-          <TextInput style={styles.textInput} />
-          <Text style={styles.loginTexts}>City:</Text>
-          <TextInput style={styles.textInput} />
-          <Text style={styles.loginTexts}>Street:</Text>
-          <TextInput style={styles.textInput} />
-          <Text style={styles.loginTexts}>Street Number:</Text>
-          <TextInput style={styles.textInput} />
-          <Text style={styles.loginTexts}>Postal Code:</Text>
-          <TextInput style={styles.textInput} />
+          </View>
           <TouchableOpacity style={styles.touchableLogin}>
             <ImageBackground
+              borderRadius={10}
               source={require('../public/src/madera.png')}
               style={styles.buttonBackground}>
               <Text style={styles.loginButtonText}>Register</Text>
@@ -51,12 +42,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    alignItems: 'center',
     justifyContent: 'center',
   },
   scrollContent: {
     flexGrow: 1,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   loginTitle: {
     fontSize: 35,
@@ -76,28 +67,27 @@ const styles = StyleSheet.create({
   loginTexts: {
     fontSize: 25,
     fontWeight: 'bold',
-    marginTop: 10,
-    marginLeft: 20,
+    marginLeft:10
   },
   loginBackground: {
-    display: 'flex',
-    alignItems: 'center',
-    width: '95%',
+    justifyContent: 'center',
+    alignItems:'center',
+    width: '80%',
     height: 'auto',
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
     borderWidth: 3,
     borderRadius: 10,
-    padding: 80,
+    paddingHorizontal:50
   },
   touchableLogin: {
+    marginTop: 20,
+    marginBottom:20,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: 'transparent', // Establece el fondo del botón como transparente
     width: '100%',
-    height: 70,
-    borderRadius: 15,
-    marginTop: 20,
+    height: 40,
   },
   loginButtonText: {
     color: 'white',
@@ -110,6 +100,5 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    // Puedes ajustar otras propiedades como borderRadius, borderColor, etc.
   }
 });

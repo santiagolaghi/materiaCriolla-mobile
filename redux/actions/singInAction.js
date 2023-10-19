@@ -11,7 +11,6 @@ const login = createAsyncThunk('login', async (data) => {
     }
     try {
         let res = await axios.post(api + '/auth/signIn', data)
-        console.log(res);
         await storage.save({key:'token',data:{token:res.data.response.token}})
         await storage.save({key:'user',data:{user:res.data.response.user}}) 
         return {
