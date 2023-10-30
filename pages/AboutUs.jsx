@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { View, Text, ImageBackground, StyleSheet,ScrollView } from 'react-native';
 
 const MissionVisionValues = () => {
   return (
@@ -14,12 +14,13 @@ const MissionVisionValues = () => {
           Our vision at Materia Criolla is to be the global symbol of quality mate experiences, uniting people in camaraderie and wellness worldwide.
         </Text>
         <Text style={styles.sectionHeading}>Our Values</Text>
-        <Text style={styles.missionVisionValuesText}>
-          - Integrity
-          - Innovation
-          - Teamwork
-          - Passion
-        </Text>
+        <View>
+        <Text style={styles.missionVisionValuesText}>-Integrity</Text>
+          <Text style={styles.missionVisionValuesText}>-Innovation</Text>
+          <Text style={styles.missionVisionValuesText}>-Teamwork</Text>
+          <Text style={styles.missionVisionValuesText}>-Passion</Text>
+        </View>
+        
       </View>
     </ImageBackground>
   );
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   missionVisionValuesText: {
-    fontSize: 25,
+    fontSize: 20,
     marginBottom: 10,
     color: 'white',
     textAlign: 'center',    

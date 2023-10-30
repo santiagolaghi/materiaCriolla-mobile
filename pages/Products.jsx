@@ -57,7 +57,7 @@ const Products = () => {
             </View>
             <ScrollView overScrollMode="never" contentContainerStyle={{ flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-evenly', rowGap: 20 }} style={{ width: '100%', height: '100%', paddingVertical: 20 }}>
                 {products?.map((product) => {
-                    return (<View style={styles.cards}>
+                    return (<View key={product._id} style={styles.cards}>
                         <Image style={{ position: 'absolute', top: 5, right: 5, width: 25, height: 25 }} source={require('../assets/notAddedCheckout.png')} />
                         <Image source={{ uri: product.product_photo[0] }} style={{ width: '100%', height: '55%', objectFit: 'contain' }} />
                         <View style={{ width: '100%', height: '45%', alignItems: 'center' }}>
